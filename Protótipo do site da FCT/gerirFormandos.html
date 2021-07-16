@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/btn-branco.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="js/i18n/defaults-eu.js"></script>
+    <title>Gestão de Formandos</title>
+    <style>
+      #addEmpresa {
+        margin-top: 10%;
+        width: 70%;
+        background-color: #fff;
+        border-radius: 15px;
+        display: none;
+      }
+      #action {
+        color: gray;
+        display: block;
+        padding-top: 25vh;
+      }
+      #wrapper {
+        background: url("imagens/formandosOG.png") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        font-family: "Arial", sans-serif;
+      }
+      .back {
+        height: 100vh;
+      }
+      .gradient {
+        background: rgb(75, 75, 75);
+        background: linear-gradient(
+          180deg,
+          rgba(75, 75, 75, 1) 0%,
+          rgba(117, 117, 117, 1) 35%,
+          rgba(195, 195, 195, 1) 100%
+        );
+        text-shadow: 2px 2px 3px gray;
+        color: #fff;
+      }
+      .btn-light {
+        border: 1px solid #ced4da !important;
+      }
+      .divider {
+        border-top: 1px solid #dee2e6;
+        margin-top: 20px;
+      }
+    </style>
+
+    <script></script>
+  </head>
+  <body>
+    <div id="wrapper" class="back">
+      <div class="container-fluid text-center" id="action">
+        <div class="row align-items-center">
+          <div class="col-md-12">
+            <h1 style="color: lightgray">Gestão de Formandos</h1>
+            <div class="col-md-6 offset-md-3">
+              <br /><br /><br /><br />
+              <p style="font-size: 18px">O que deseja fazer?</p>
+              <br /><br />
+              <div class="row">
+                <div class="col">
+                  <p>
+                    <button
+                      class="btn-branco"
+                      data-bs-toggle="modal"
+                      data-bs-target="#addFormandoModal"
+                    >
+                      Adicionar formando
+                    </button>
+                  </p>
+                  <p>
+                    <button
+                      class="btn-branco"
+                      data-bs-toggle="modal"
+                      data-bs-target="#editFormandoModal"
+                    >
+                      Editar formando
+                    </button>
+                  </p>
+                  <p>
+                    <button
+                      class="btn-branco"
+                      data-bs-toggle="modal"
+                      data-bs-target="#addEEModal"
+                    >
+                      Adicionar Enc. Educação
+                    </button>
+                  </p>
+                  <p>
+                    <button
+                      class="btn-branco"
+                      data-bs-toggle="modal"
+                      data-bs-target="#editEEModal"
+                    >
+                      Editar Enc. Educação
+                    </button>
+                  </p>
+                  <p>
+                    <a class="btn-branco" href="index.html" role="button"
+                      >Voltar à página inicial</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      role="dialog"
+      id="addFormandoModal"
+      aria-labelledby="addFormandoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header gradient">
+            <h3>Dados do Formando</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row p-3">
+                <div class="col-md-8">
+                  <label for="nomeFor" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeFor"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="ccFor" class="form-label">C.C. nº</label>
+                  <input type="text" class="form-control" id="ccFor" required />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-4">
+                  <label for="dataValFor" class="form-label"
+                    >Data de validade</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="dataValFor"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="concelhoFor" class="form-label">Concelho</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="concelhoFor"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="codPostFor" class="form-label"
+                    >Código Postal</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="xxxx-xxx"
+                    id="codPostFor"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-7">
+                  <label for="moradaFor" class="form-label">Morada</label>
+                  <input type="text" class="form-control" required />
+                </div>
+                <div class="col-md-5">
+                  <label for="telFor" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" required />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-7">
+                  <label for="emailFor" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="example@domain.com"
+                    required
+                  />
+                </div>
+                <div class="col-md-5">
+                  <label for="dataNasc" class="form-label"
+                    >Data de Nascimento</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="dd/mm/aaaa"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+              <button type="submit" class="btn btn-primary">Submeter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      role="dialog"
+      id="editFormandoModal"
+      aria-labelledby="editFormandoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header gradient">
+            <h3>Dados do formando</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="selPickerFor" class="form-label">Formando</label>
+            <select
+              id="selPickerFor"
+              class="form-control selectpicker"
+              data-live-search="true"
+            >
+              <option data-tokens="gustavo">Gustavo</option>
+              <option data-tokens="luis">Luís</option>
+              <option data-tokens="pedro">Pedro</option>
+              <option data-tokens="ricardo">Ricardo</option>
+              <option data-tokens="rodrigo">Rodrigo</option>
+            </select>
+            <div class="divider"></div>
+            <form>
+              <div class="row p-3">
+                <div class="col-md-8">
+                  <label for="nomeFor" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeFor"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="ccFor" class="form-label">C.C. nº</label>
+                  <input type="text" class="form-control" id="ccFor" required />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-4">
+                  <label for="dataValFor" class="form-label"
+                    >Data de validade</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="dataValFor"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="concelhoFor" class="form-label">Concelho</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="concelhoFor"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="codPostFor" class="form-label"
+                    >Código Postal</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="xxxx-xxx"
+                    id="codPostFor"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-7">
+                  <label for="moradaFor" class="form-label">Morada</label>
+                  <input type="text" class="form-control" required />
+                </div>
+                <div class="col-md-5">
+                  <label for="telFor" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" required />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-7">
+                  <label for="emailFor" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="example@domain.com"
+                    required
+                  />
+                </div>
+                <div class="col-md-5">
+                  <label for="dataNasc" class="form-label"
+                    >Data de Nascimento</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="dd/mm/aaaa"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      role="dialog"
+      id="addEEModal"
+      aria-labelledby="addEEModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header gradient">
+            <h3>Dados do ecarregado de educação</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="addForPicker" class="form-label">Formando</label>
+            <select
+              id="addForPicker"
+              class="form-control selectpicker"
+              data-live-search="true"
+            >
+              <option data-tokens="Gustavo">Gustavo</option>
+              <option data-tokens="Luís">Luís</option>
+              <option data-tokens="Pedro">Pedro</option>
+              <option data-tokens="Ricardo">Ricardo</option>
+              <option data-tokens="Rodrigo">Rodrigo</option>
+            </select>
+            <div class="divider"></div>
+            <form>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="nomeFor" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeFor"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-8">
+                  <label for="concelhoFor" class="form-label">Concelho</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="concelhoFor"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="codPostFor" class="form-label"
+                    >Código Postal</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="xxxx-xxx"
+                    id="codPostFor"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-7">
+                  <label for="moradaFor" class="form-label">Morada</label>
+                  <input type="text" class="form-control" required />
+                </div>
+                <div class="col-md-5">
+                  <label for="telFor" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" required />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="emailFor" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="example@domain.com"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+            <button type="submit" class="btn btn-primary">Submeter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      role="dialog"
+      id="editEEModal"
+      aria-labelledby="editEEModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header gradient">
+            <h3>Dados do ecarregado de educação</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="editForEEPicker" class="form-label">Formando</label>
+            <select
+              id="editForEEPicker"
+              class="form-control selectpicker"
+              data-live-search="true"
+            >
+              <option data-tokens="Gustavo">Gustavo</option>
+              <option data-tokens="Luís">Luís</option>
+              <option data-tokens="Pedro">Pedro</option>
+              <option data-tokens="Ricardo">Ricardo</option>
+              <option data-tokens="Rodrigo">Rodrigo</option>
+            </select>
+            <label for="editForForPicker" class="form-label mt-2"
+              >Ecarregado de Educação</label
+            >
+            <select
+              id="editForForPicker"
+              class="form-control selectpicker"
+              data-live-search="true"
+            >
+              <option data-tokens="EE-Gustavo">João</option>
+              <option data-tokens="EE-Luís">Joaquim</option>
+              <option data-tokens="EE-Pedro">José</option>
+              <option data-tokens="EE-Ricardo">Joana</option>
+              <option data-tokens="EE-Rodrigo">Juliana</option>
+            </select>
+            <div class="divider"></div>
+            <form>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="nomeFor" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeFor"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-8">
+                  <label for="concelhoFor" class="form-label">Concelho</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="concelhoFor"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="codPostFor" class="form-label"
+                    >Código Postal</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="xxxx-xxx"
+                    id="codPostFor"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-7">
+                  <label for="moradaFor" class="form-label">Morada</label>
+                  <input type="text" class="form-control" required />
+                </div>
+                <div class="col-md-5">
+                  <label for="telFor" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" required />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="emailFor" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="example@domain.com"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+            <button type="submit" class="btn btn-primary">Submeter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

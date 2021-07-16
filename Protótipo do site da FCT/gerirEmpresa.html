@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/btn-branco.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="js/i18n/defaults-eu.js"></script>
+    <title>Gestão de Empresas</title>
+    <style>
+      #addEmpresa {
+        margin-top: 10%;
+        width: 70%;
+        background-color: #fff;
+        border-radius: 15px;
+        display: none;
+      }
+      #action {
+        color: gray;
+        display: block;
+        padding-top: 25vh;
+      }
+      #wrapper {
+        background: url("imagens/background.png") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        font-family: "Arial", sans-serif;
+      }
+      .back {
+        height: 100vh;
+      }
+      .gradient {
+        background: rgb(75, 75, 75);
+        background: linear-gradient(
+          180deg,
+          rgba(75, 75, 75, 1) 0%,
+          rgba(117, 117, 117, 1) 35%,
+          rgba(195, 195, 195, 1) 100%
+        );
+        text-shadow: 2px 2px 3px gray;
+        color: #fff;
+      }
+      .btn-light {
+        border: 1px solid #ced4da !important;
+      }
+      .divider {
+        border-top: 1px solid #dee2e6;
+        margin-top: 20px;
+      }
+    </style>
+
+    <script></script>
+  </head>
+  <body>
+    <div id="wrapper" class="back">
+      <div class="container-fluid text-center" id="action">
+        <div class="row align-items-center">
+          <div class="col-md-12">
+            <h1 style="color: lightgray">Gestão de Empresas</h1>
+            <div class="col-md-6 offset-md-3">
+              <br /><br /><br /><br />
+              <p style="font-size: 18px">O que deseja fazer?</p>
+              <br /><br />
+              <div class="row">
+                <div class="col">
+                  <p>
+                    <button
+                      class="btn-branco"
+                      data-bs-toggle="modal"
+                      data-bs-target="#addEmpresaModal"
+                    >
+                      Adicionar empresa
+                    </button>
+                  </p>
+                  <p>
+                    <button
+                      class="btn-branco"
+                      data-bs-toggle="modal"
+                      data-bs-target="#editEmpresaModal"
+                    >
+                      Editar empresa
+                    </button>
+                  </p>
+                  <p>
+                    <button
+                      class="btn-branco"
+                      data-bs-toggle="modal"
+                      data-bs-target="#addMonModal"
+                    >
+                      Adicionar monitor
+                    </button>
+                  </p>
+                  <p>
+                    <button
+                      class="btn-branco"
+                      data-bs-toggle="modal"
+                      data-bs-target="#editMonModal"
+                    >
+                      Editar monitor
+                    </button>
+                  </p>
+                  <p>
+                    <a class="btn-branco" href="index.html" role="button"
+                      >Voltar à página inicial</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      role="dialog"
+      id="addEmpresaModal"
+      aria-labelledby="addEmpresaModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header gradient">
+            <h3>Dados da empresa</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="nomeEmp" class="form-label"
+                    >Designação Social</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeEmp"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-8">
+                  <label for="concelhoEmp" class="form-label">Concelho</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="concelhoEmp"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="codPostEmp" class="form-label"
+                    >Código Postal</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="xxxx-xxx"
+                    id="codPostEmp"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-7">
+                  <label for="moradaEmp" class="form-label">Morada</label>
+                  <input type="text" class="form-control" required />
+                </div>
+                <div class="col-md-5">
+                  <label for="telEmp" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" required />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-7">
+                  <label for="emailEmp" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="example@domain.com"
+                    required
+                  />
+                </div>
+                <div class="col-md-5">
+                  <label for="atividade" class="form-label"
+                    >Atividade Principal</label
+                  >
+                  <input type="text" class="form-control" required />
+                </div>
+              </div>
+            </form>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+              <button type="submit" class="btn btn-primary">Submeter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      role="dialog"
+      id="editEmpresaModal"
+      aria-labelledby="editEmpresaModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header gradient">
+            <h3>Dados da empresa</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="selPickerEmp" class="form-label">Empresa</label>
+            <select
+              id="selPickerEmp"
+              class="form-control selectpicker"
+              data-live-search="true"
+            >
+              <option data-tokens="durit">Durit</option>
+              <option data-tokens="jade">Jade</option>
+              <option data-tokens="alberplas">Alberplás</option>
+            </select>
+            <div class="divider"></div>
+            <form>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="editNomeEmp" class="form-label"
+                    >Designação Social</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editNomeEmp"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-8">
+                  <label for="editConcelhoEmp" class="form-label"
+                    >Concelho</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editConcelhoEmp"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="editCodPostEmp" class="form-label"
+                    >Código Postal</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="xxxx-xxx"
+                    id="editCodPostEmp"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-7">
+                  <label for="editMoradaEmp" class="form-label">Morada</label>
+                  <input
+                    type="text"
+                    id="editMoradaEmp"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="col-md-5">
+                  <label for="editTelEmp" class="form-label">Telefone</label>
+                  <input
+                    type="text"
+                    id="editTelEmp"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-7">
+                  <label for="editEmailEmp" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="example@domain.com"
+                    id="editEmailEmp"
+                    required
+                  />
+                </div>
+                <div class="col-md-5">
+                  <label for="editAtividade" class="form-label"
+                    >Atividade Principal</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editAtividade"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      role="dialog"
+      id="addMonModal"
+      aria-labelledby="addMonModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header gradient">
+            <h3>Dados do monitor</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="addMonPicker" class="form-label">Empresa</label>
+            <select
+              id="addMonPicker"
+              class="form-control selectpicker"
+              data-live-search="true"
+            >
+              <option value="durit">Durit</option>
+              <option value="jade">Jade</option>
+              <option value="alberplas">Alberplás</option>
+            </select>
+            <div class="divider"></div>
+            <form>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="nomeMon" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeMon"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-8">
+                  <label for="cargoMon" class="form-label">Cargo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cargoMon"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="telMon" class="form-label">Telefone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="telMon"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="moradaEmp" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    id="emailMon"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+            <button type="submit" class="btn btn-primary">Submeter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      role="dialog"
+      id="editMonModal"
+      aria-labelledby="editMonModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header gradient">
+            <h3>Dados do monitor</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="editMonEmpPicker" class="form-label">Empresa</label>
+            <select
+              id="editMonEmpPicker"
+              class="form-control selectpicker"
+              data-live-search="true"
+            >
+              <option value="durit">Durit</option>
+              <option value="jade">Jade</option>
+              <option value="alberplas">Alberplás</option>
+            </select>
+            <label for="editMonMonPicker" class="form-label mt-2"
+              >Monitor</label
+            >
+            <select
+              id="editMonMonPicker"
+              class="form-control selectpicker"
+              data-live-search="true"
+            >
+              <option value="joao">João Silva</option>
+              <option value="jose">José Manuel</option>
+              <option value="antonio">António Migalha</option>
+            </select>
+            <div class="divider"></div>
+            <form>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="nomeMon" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeMon"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-8">
+                  <label for="cargoMon" class="form-label">Cargo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cargoMon"
+                    required
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label for="telMon" class="form-label">Telefone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="telMon"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="moradaEmp" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    id="emailMon"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+            <button type="submit" class="btn btn-primary">Submeter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

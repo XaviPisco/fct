@@ -1,0 +1,65 @@
+body,
+html {
+  font-family: "Roboto", sans-serif;
+}
+img {
+  border: solid 5px;
+}
+
+#header {
+  width: 100%;
+  background-color: transparent;
+  transition: background ease-out 0.2s;
+}
+
+#header .navbar-collapse {
+  width: auto;
+}
+
+#header .nav-link {
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-left: 0%;
+  padding-right: 0%;
+  color: #000;
+  border-bottom: solid 4px transparent;
+}
+
+#header .nav-link:hover {
+  border-bottom: solid 4px black;
+}
+
+#slider1 h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+#slider1 h4 {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+#slider2 h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+#slider2 h4 {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+#slider3 h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+#slider3 h4 {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+#footer {
+  border-top: 1px solid orangered;
+}
+
+.noborder {
+  border: none !important;
+}
