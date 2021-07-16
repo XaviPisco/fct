@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HAPPYbreak</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+        #produtos {
+            padding-top: 70px;
+        }
+        .credit-card-box .panel-title {
+            display: inline;
+            font-weight: bold;
+        }
+        .credit-card-box .display-table {
+            display: table;
+        }
+        .credit-card-box .display-tr {
+            display: table-row;
+        }
+        .credit-card-box .display-td {
+            display: inline-table;
+        }
+        .credit-card-box .panel-heading img {
+            min-width: 180px;
+        }
+        .credit-card-box .payment.errors {
+            font-weight: bold;
+            color: red;
+            padding: 2px 8px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <!--Barra de navegação-->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse1"><span class="sr-only">Alternar navegação</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">HAPPYbreak</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Sobre nós</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Promoções <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Praia</a></li>
+                            <li><a href="#">Montanha</a></li>
+                            <li><a href="#">Cidade</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Last Minute!</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Procurar">
+                        <div class="input-group-btn" type="submit">
+                            <button class="btn btn-default">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Registo</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!--Formulário de autenticação-->
+                                        <form class="form" method="POST" id="login-nav">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="email">Endereço email</label>
+                                                <input type="email" class="form-control" id="email" placeholder="Endereço de email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="password">Password</label>
+                                                <input type="password" class="form-control" id="password" placeholder="Password" required>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Lembrar-me
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-success btn-block">Login</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <!--Botões de rodapé-->
+                                <input class="btn btn-primary btn-block" type="button" value="Login com Google">
+                                <input class="btn btn-primary btn-block" type="button" value="Login com Twitter">
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" id="produtos">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default credit-card-box">
+                    <div class="panel-heading display-table">
+                        <!--Título do painel-->
+                        <div class="row display-tr">
+                            <h3 class="panel-title display-td">Pagamento</h3>
+                            <div class="display-td">
+                                <img class="img-responsive pull-right" src="https://premiumoudh.com/wp-content/uploads/2021/04/credit-cards.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form">
+                            <!--Formulário com os elementos para pagamento-->
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="cardNumber">Número do cartão</label>
+                                        <div class="input-group">
+                                            <input type="tel"
+                                            class="form-control"
+                                            name="cardNumber"
+                                            placeholder="Número de Cartão Válido"
+                                            autocomplete="cc-number"
+                                            required autofocus>
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-credit-card"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7 col-md-7">
+                                    <div class="form-group">
+                                        <label for="cardExpiry">
+                                            <span class="hidden-xs">Data de Expiração</span>
+                                            <span class="visible-xs-inline">Data Exp.</span>
+                                        </label>
+                                        <input
+                                        type="tel"
+                                        class="form-control"
+                                        name="cardExpiry"
+                                        placeholder="MM/AA"
+                                        autocomplete="cc-exp"
+                                        required>
+                                    </div>   
+                                </div>
+                                <div class="col-xs-5 col-md-5 pull-right">
+                                    <div class="form-group">
+                                        <label for="cardCVC">Código CVV</label>
+                                        <input
+                                        type="tel"
+                                        class="form-control"
+                                        name="cardCVC"
+                                        placeholder="CVV"
+                                        autocomplete="cc-csc"
+                                        required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="couponCode">Código Promocional</label>
+                                        <input type="text" class="form-control" name="couponCode">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <button type="button" class="btn btn-success btn-lg btn-block subscribe">
+                                        Efetuar pagamento
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row" style="display: none;">
+                                <div class="col-xs-12">
+                                    <p class="payment-errors"></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <footer>
+            <!--Informação de copyright-->
+        </footer>
+    </div>
+</body>
+
+</html>

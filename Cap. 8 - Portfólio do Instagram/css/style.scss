@@ -1,0 +1,79 @@
+$main-font: 'Lato', sans-serif;
+$sub-font: 'Montserrat', sans-serif;
+$fancy-font: 'Kaushan Script', cursive;
+$font-size: 16px;
+
+$black: #000;
+$white: #FFF;
+$grey: #585c65;
+$mediumgrey: #9b9b9b;
+$lightgrey: #eeeeee;
+$blue: #3466a1;
+
+$padding: 10px;
+$margin: 10px;
+
+$font-family-sans-serif: $main-font;
+@import 'bootstrap';
+
+body {
+    color: $grey;
+    font-size: $font-size;
+}
+
+header {
+    overflow: hidden;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: 0.06em;
+    margin-bottom: $margin;
+}
+
+h2 {
+    font-size: 16px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.titles {
+    position: absolute;
+    bottom: 40%;
+    width: 100%;
+    text-align: center;
+}
+
+h1, h2 {
+    width: 100%;
+    color: $white;
+    margin: 0;
+}
+
+.instagram-wrap {
+    background: $lightgrey;
+}
+
+.instagram-content {
+    h3 {
+        text-transform: uppercase;
+        letter-spacing: 0.5em;
+        font-size: 12px;
+        font-weight: 700;
+        text-align: center;
+        padding: $padding*5 0;
+        color: darken($lightgrey, 20%);
+    }
+}
+
+.footer-bottom {
+    background: $white;
+    padding: $padding $padding*6;
+    border-top: 2px solid $lightgrey;
+    letter-spacing: 2px;
+    text-align: center;
+    color: $mediumgrey;
+    text-transform: uppercase;
+}

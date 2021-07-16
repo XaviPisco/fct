@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HAPPYbreak</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #produtos {
+            padding-top: 70px;
+        }
+        .thumbnail .caption-full {
+            padding: 9px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <!--Barra de navegação-->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse1"><span class="sr-only">Alternar navegação</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">HAPPYbreak</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Sobre nós</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Promoções <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Praia</a></li>
+                            <li><a href="#">Montanha</a></li>
+                            <li><a href="#">Cidade</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Last Minute!</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Procurar">
+                        <div class="input-group-btn" type="submit">
+                            <button class="btn btn-default">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Registo</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!--Formulário de autenticação-->
+                                        <form class="form" method="POST" id="login-nav">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="email">Endereço email</label>
+                                                <input type="email" class="form-control" id="email" placeholder="Endereço de email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="password">Password</label>
+                                                <input type="password" class="form-control" id="password" placeholder="Password" required>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Lembrar-me
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-success btn-block">Login</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <!--Botões de rodapé-->
+                                <input class="btn btn-primary btn-block" type="button" value="Login com Google">
+                                <input class="btn btn-primary btn-block" type="button" value="Login com Twitter">
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" id="produtos">
+        <div class="row">
+            <div class="col-md-3">
+                <!--Categorias dos produtos-->
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1">
+                                    <strong>Europa</strong>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <!--Lista dos países-->
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">Portugal <span class="badge">25</span></a>
+                                <a href="#" class="list-group-item">Espanha <span class="badge">2</span></a>
+                                <a href="#" class="list-group-item">França <span class="badge">3</span></a>
+                                <a href="#" class="list-group-item">Itália <span class="badge"></span></a>
+                                <a href="#" class="list-group-item">Inglaterra <span class="badge">1</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="thumbnail">
+                    <!--Área descritiva da oferta-->
+                    <img class="img-responsive" src="porto.jpg" alt="">
+                    <div class="caption-full">
+                        <h4 class="pull-right">€124.99</h4>
+                        <h4><a href="#"><strong>Porto</strong></a></h4>
+                        <p>Visite o Porto em 3 dias com estadia em hotel de 4 estrelas no centro.</p>
+                        <p>Passe três dias no Porto e visite o centro histórico, a zona ribeirinha e as famosas praias de Matosinhos e da Foz. Aproveite e
+                            beba o fantástico vinho do Porto e visite as famosas caves. Faça o passeio no Douro e atravesse as suas várias Pontes.
+                        </p>
+                        <p>Não se esqueça de provar as famosas francesinhas e deixe o Porto com a certeza de lá voltar!</p>
+                        <a href="wishlist.html" class="btn btn-success">Comprar bilhete</a>
+                    </div>
+                </div>
+                <div class="well">
+                    <!--Área dos comentários relativos à oferta-->
+                    <div class="text-right">
+                        <a class="btn btn-success">Deixe um comentário!</a>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            Rui e Maria
+                            <span class="pull-right">10 dias atrás</span>
+                            <p>Adorei o Porto e tenciono lá voltar!</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anónimo
+                            <span class="pull-right">12 dias atrás</span>
+                            <p>As francesinhas no Santiago são uma delícia!</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            Marta Soares
+                            <span class="pull-right">1 mês atrás</span>
+                            <p>Linda e pitoresca cidade. Adorei o centro histórico. Aconselho vivamente a visitarem esta fantástica cidade!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../CSS + JS + Fonts/css/bootstrap.css">
+        <script type="text/javascript" src="../../CSS + JS + Fonts/js/jquery-3.6.0.js"></script>
+        <script type="text/javascript" src="../../CSS + JS + Fonts/js/bootstrap.js"></script>
+        <meta charset="utf-8">
+        <script>
+            $(function () {
+                $('[data-toggle="popover"]').popover()
+            })
+        </script>
+    </head>
+    <body>
+        <a id="myLink" href="#" data-toggle="popover" title="Popover Cabeçalho" data-content="Corpo de texto do plugin...">Abrir Popover</a>
+        <a href="#" title="Outro exemplo de popover..." data-toggle="popover" data-trigger="hover" data-content="Clique em qualquer parte do documento para fechar">Clicar</a>
+        <a href="#" title="Outro exemplo de popover..." data-toggle="popover" data-trigger="focus" data-content="Clique em qualquer parte do documento para fechar">Clicar</a>
+    </body>
+</html>

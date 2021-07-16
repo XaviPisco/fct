@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .btn:after {
+                font-family: "Glyphicons Halflings";
+                content: "\e114";
+            }
+            .btn.collapsed:after {
+                content: "\e080";
+            }
+        </style>
+        <link rel="stylesheet" href="../../CSS + JS + Fonts/css/bootstrap.css">
+        <script type="text/javascript" src="../../CSS + JS + Fonts/js/jquery-3.6.0.js"></script>
+        <script type="text/javascript" src="../../CSS + JS + Fonts/js/bootstrap.js"></script>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <button type="button" class="btn btn-lg btn-info collapsed" data-toggle="collapse" data-target="#demo">Colapsável</button>
+        <div id="demo" class="collapse">
+            Lorem ipsum dolor sit amet...
+        </div>
+    </body>
+</html>

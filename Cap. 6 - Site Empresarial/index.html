@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Infocampos, Lda.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".navbar a, footer a[href='#home']").on('click', function(event){
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top}, 900, function(){
+                            window.location.hash = hash;
+                    });
+                };
+            });
+        });
+    </script>
+    <style>
+        .navbar {
+            margin-bottom: 0;
+            background-color: #2d2d30;
+            border: 0;
+            font-size: 11px !important;
+            letter-spacing: 4px;
+            opacity: 0.9;
+        }
+
+        .navbar-nav li a:hover {
+            color: #fff !important;
+        }
+
+        .navbar-nav li.active a {
+            color: #fff !important;
+            background-color: #29292c !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+        }
+
+        .carousel-inner img {
+            -webkit-filter: grayscale(90%);
+            filter: grayscale(90%);
+            width: 100%;
+            margin: auto;
+        }
+
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none;
+            }
+        }
+
+        .container {
+            padding: 80px 120px;
+        }
+
+        .person {
+            width: 70%;
+            height: 70%;
+            opacity: 0.5;
+            margin-bottom: 25px;
+        }
+
+        .person:hover {
+            opacity: 1;
+        }
+
+        .bg-1 {
+            background: #2d2d30;
+            color: #bdbdbd;
+        }
+
+        .bg-1 h3 {
+            color: #fff;
+        }
+
+        .bg-1 p {
+            font-style: italic;
+        }
+
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+
+        .thumbnail p {
+            padding: 5px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #f1f1f1;
+            border-radius: 0;
+            transition: .2s;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            border: 1px solid #333;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .modal-header,
+        h4,
+        .close {
+            background-color: #333;
+            color: #fff;
+        }
+
+        #googleMap {
+            width: 100%;
+            height: 400px;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+
+        footer {
+            background-color: #2d2d30;
+            color: #f5f5f5;
+            padding: 32px;
+        }
+
+        footer a {
+            color: #f5f5f5;
+        }
+
+        footer a:hover {
+            color: #777;
+            text-decoration: none;
+        }
+        body {
+            font: 400 15px/1.8 Lato, sans-serif;
+            color: #777;
+        }
+        .navbar {
+            font-family: Montserrat, sans-serif;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <!--Barra de navegação-->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span
+                        class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a class="navbar-brand" href="#home">Infocampos, Lda.</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#equipa">EQUIPA</a></li>
+                    <li><a href="#produtos">PRÉ-MONTADOS</a></li>
+                    <li><a href="#contactos">CONTACTOS</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="home">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!--Slider-->
+            <!--Indicadores-->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!--Wrapper para as imagens-->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="reparacao.jpg" alt="Reparações" width="1200" height="700">
+                    <div class="carousel-caption">
+                        <h3>Reparações</h3>
+                        <p>Reparações de dispositivos a nível informático.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="montagem.jpg" alt="Montagem" width="1200" height="700">
+                    <div class="carousel-caption">
+                        <h3>Montagens</h3>
+                        <p>Montagem de computadores a um preço acessível.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="tecnico.jpg" alt="Suporte Técnico" width="1200" height="700">
+                    <div class="carousel-caption">
+                        <h3>Suporte técnico</h3>
+                        <p>Ajuda em qualquer lugar, a qualquer hora.</p>
+                    </div>
+                </div>
+            </div>
+            <!--Controlos (esquerdo e direito)-->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <div id="equipa" class="container text-center">
+        <!--Secção "Equipa"-->
+        <h3>A EQUIPA</h3>
+        <p><em>Gostamos de inovar!</em></p>
+        <p>
+            Equipa com ideais modernos pronta para trabalhar!
+            Fazemos reparações e montagens de computadores, com suporte sempre pronto a ajudar.
+            Tudo para facilitar a sua vida!<br><br><br>
+        </p>
+        <div class="row">
+            <div class="col-sm-4">
+                <p><strong>Rui Campos</strong></p><br>
+                <a href="#demo" data-toggle="collapse">
+                    <img src="ruicampos.jpg" class="img-circle person" alt="Rui Campos">
+                </a>
+                <div id="demo" class="collapse">
+                    <p>CEO da Infocampos, Lda.</p>
+                    <p>Gosta de cantar</p>
+                    <p>Membro fundador - 2018</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <p><strong>Joana Silva</strong></p><br>
+                <a href="#demo1" data-toggle="collapse">
+                    <img src="joanasilva.jpg" class="img-circle person" alt="Joana Silva">
+                </a>
+                <div id="demo1" class="collapse">
+                    <p>Coordenadora do Suporte Técnico</p>
+                    <p>Gosta de viajar</p>
+                    <p>Funcionária - 2019</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <p><strong>Alberto Henriques</strong></p><br>
+                <a href="#demo2" data-toggle="collapse">
+                    <img src="albertohenriques.jpg" class="img-circle person" alt="Alberto Henriques">
+                </a>
+                <div id="demo2" class="collapse">
+                    <p>Diretor de Montagem</p>
+                    <p>Gosta de andar de bicicleta</p>
+                    <p>Funcionário - 2020</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="produtos" class="bg-1">
+        <!--Secção "Produtos"-->
+        <div class="container">
+            <h3 class="text-center">PRÉ-MONTADOS</h3>
+            <p class="text-center">
+                Escolha os nossos pré-montados aplicados a si, desde microATX a E-ATX!<br><br>
+            </p>
+            <div class="row text-center">
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="pcmicroatx.jpg" alt="microATX" width="400" height="300">
+                        <p><strong>PC microATX (AMD Ryzen 5 2600 + NVIDIA GeForce GTX 1650 + 8GB DDR4 3200MHz)</strong>
+                        </p>
+                        <p>599€</p>
+                        <button class="btn" data-toggle="modal" data-target="#myModal">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="pcatx.jpg" alt="ATX" width="400" height="300">
+                        <p><strong>PC ATX (Intel i5 10400F + Radeon RX 6700XT + 16GB DDR4 3666MHz Dual-Channel)</strong>
+                        </p>
+                        <p>799€</p>
+                        <button class="btn" data-toggle="modal" data-target="#myModal1">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="pceatx.jpg" alt="E-ATX" width="400" height="300">
+                        <p><strong>PC E-ATX (Ryzen 5 5900X + NVIDIA GeForce RXT 2060 OC + 32GB DDR4 4266MHz)</strong>
+                        </p>
+                        <p>1199€</p>
+                        <button class="btn" data-toggle="modal" data-target="#myModal2">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">x</button>
+                            <span class="glyphicon glyphicon-shopping-cart"></span> PC microATX
+                        </div>
+                        <div class="modal-body">
+                            <form class="form">
+                                <div class="form-group">
+                                    <label for="ccname">
+                                        <span class="glyphicon glyphicon-user"></span> Nome no cartão
+                                    </label>
+                                    <input class="form-control" type="text" id="ccname" name="cardname"
+                                        placeholder="Ex.: João Miguel Bastos">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ccnum">
+                                        <span class="glyphicon glyphicon-credit-card"></span> Nº de cartão de crédito
+                                    </label>
+                                    <input class="form-control" type="text" id="ccnum" name="cardnumber"
+                                        placeholder="Ex.: 1111-2222-3333-4444">
+                                </div>
+                                <div class="form-group">
+                                    <label for="expmonth">
+                                        <span class="glyphicon glyphicon-time"></span> Data de expiração
+                                    </label>
+                                    <input class="form-control" type="month" id="expmonth" name="expmonth">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ccsecret">
+                                        <span class="glyphicon glyphicon-lock"></span> CVC
+                                    </label>
+                                    <input class="form-control" type="text" id="ccsecret" name="cardsecret"
+                                        placeholder="Ex.: 123">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">
+                                        <span class="glyphicon glyphicon-list"></span> Endereço de residência
+                                    </label>
+                                    <input class="form-control" type="text" id="address" name="useraddress"
+                                        placeholder="Ex.: Telhadela, Rua da Pipa nº2">
+                                </div>
+                                <button type="submit" class="btn btn-block">
+                                    Pagar <span class="glyphicon glyphicon-ok"></span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove"></span> Cancelar
+                            </button>
+                            <p><a href="#">Precisa de ajuda?</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">x</button>
+                            <span class="glyphicon glyphicon-shopping-cart"></span> PC ATX
+                        </div>
+                        <div class="modal-body">
+                            <form class="form">
+                                <div class="form-group">
+                                    <label for="ccname">
+                                        <span class="glyphicon glyphicon-user"></span> Nome no cartão
+                                    </label>
+                                    <input class="form-control" type="text" id="ccname" name="cardname"
+                                        placeholder="Ex.: João Miguel Bastos">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ccnum">
+                                        <span class="glyphicon glyphicon-credit-card"></span> Nº de cartão de crédito
+                                    </label>
+                                    <input class="form-control" type="text" id="ccnum" name="cardnumber"
+                                        placeholder="Ex.: 1111-2222-3333-4444">
+                                </div>
+                                <div class="form-group">
+                                    <label for="expmonth">
+                                        <span class="glyphicon glyphicon-time"></span> Data de expiração
+                                    </label>
+                                    <input class="form-control" type="month" id="expmonth" name="expmonth">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ccsecret">
+                                        <span class="glyphicon glyphicon-lock"></span> CVC
+                                    </label>
+                                    <input class="form-control" type="text" id="ccsecret" name="cardsecret"
+                                        placeholder="Ex.: 123">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">
+                                        <span class="glyphicon glyphicon-list"></span> Endereço de residência
+                                    </label>
+                                    <input class="form-control" type="text" id="address" name="useraddress"
+                                        placeholder="Ex.: Telhadela, Rua da Pipa nº2">
+                                </div>
+                                <button type="submit" class="btn btn-block">
+                                    Pagar <span class="glyphicon glyphicon-ok"></span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove"></span> Cancelar
+                            </button>
+                            <p><a href="#">Precisa de ajuda?</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal2" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">x</button>
+                            <span class="glyphicon glyphicon-shopping-cart"></span> PC E-ATX
+                        </div>
+                        <div class="modal-body">
+                            <form class="form">
+                                <div class="form-group">
+                                    <label for="ccname">
+                                        <span class="glyphicon glyphicon-user"></span> Nome no cartão
+                                    </label>
+                                    <input class="form-control" type="text" id="ccname" name="cardname"
+                                        placeholder="Ex.: João Miguel Bastos">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ccnum">
+                                        <span class="glyphicon glyphicon-credit-card"></span> Nº de cartão de crédito
+                                    </label>
+                                    <input class="form-control" type="text" id="ccnum" name="cardnumber"
+                                        placeholder="Ex.: 1111-2222-3333-4444">
+                                </div>
+                                <div class="form-group">
+                                    <label for="expmonth">
+                                        <span class="glyphicon glyphicon-time"></span> Data de expiração
+                                    </label>
+                                    <input class="form-control" type="month" id="expmonth" name="expmonth">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ccsecret">
+                                        <span class="glyphicon glyphicon-lock"></span> CVC
+                                    </label>
+                                    <input class="form-control" type="text" id="ccsecret" name="cardsecret"
+                                        placeholder="Ex.: 123">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">
+                                        <span class="glyphicon glyphicon-list"></span> Endereço de residência
+                                    </label>
+                                    <input class="form-control" type="text" id="address" name="useraddress"
+                                        placeholder="Ex.: Telhadela, Rua da Pipa nº2">
+                                </div>
+                                <button type="submit" class="btn btn-block">
+                                    Pagar <span class="glyphicon glyphicon-ok"></span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove"></span> Cancelar
+                            </button>
+                            <p><a href="#">Precisa de ajuda?</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contactos" class="container">
+        <!--Secção "Contactos"-->
+        <h3 class="text-center">CONTACTOS</h3>
+        <p class="text-center"><em>Entre em contacto connosco!</em></p><br>
+        <div class="row">
+            <div class="col-md-4">
+                <p><span class="glyphicon glyphicon-map-marker"></span> Lisboa, PT</p>
+                <p><span class="glyphicon glyphicon-phone"></span> Telefone: +00351 930684738</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> Email: geral@infocampos.pt</p>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="name" name="name" placeholder="Nome" type="text" required>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="email" name="email" placeholder="E-mail" type="email" required>
+                    </div>
+                </div>
+                <textarea class="form-control" id="comments" placeholder="Comentários" rows="5"></textarea><br>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <button class="btn pull-right" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="googleMap">
+            <script>
+                function myMap() {
+                    var myCenter = new google.maps.LatLng(38.76260817604616, -9.183207231787529);
+                    var mapProp = { mapTypeId: google.maps.MapTypeId.ROADMAP, zoom: 12, center: myCenter, draggable: false };
+                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                    var marker = new google.maps.Marker({ position: myCenter });
+                    marker.setMap(map);
+                }
+            </script>
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvi0H9O0shxUuejqABVgMGNzQZyamHTVg&callback=myMap"></script>
+        </div>
+    </div>
+    <footer class="text-center">
+        <a class="up-arrow" href="#home" data-toggle="tooltip" title="Topo da página">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <p>Infocampos, Lda. Copyright, 2018</p>
+    </footer>
+</body>
+
+</html>
