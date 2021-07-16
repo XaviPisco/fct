@@ -38,7 +38,7 @@
 
     <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <script src="js/i18n/defaults-eu.js"></script>
-    <title>Gestão de Formandos</title>
+    <title>Gestão de Processos</title>
     <style>
       #action {
         color: gray;
@@ -128,7 +128,7 @@
     <div class="container-fluid text-center" id="action">
       <div class="row">
         <div class="col">
-          <h1 style="color: lightgray">Gestão de Formandos</h1>
+          <h1 style="color: lightgray">Gestão de Processos</h1>
           <div class="row mt-5">
             <div class="col">
               <p style="font-size: 18px">O que deseja fazer?</p>
@@ -157,7 +157,7 @@
                       <button
                         class="btn-branco"
                         data-bs-toggle="modal"
-                        data-bs-target="#listaProcessosModal"
+                        data-bs-target="#listarProcessosModal"
                       >
                         Lista de processos
                       </button>
@@ -188,7 +188,7 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body mx-3">
             <label for="selPickerTurma" class="form-label">Turma</label>
             <select
               class="form-control selectpicker"
@@ -269,35 +269,52 @@
             </select>
             <div class="row">
               <div class="col-md-6">
-                <label for="startDate" class="form-label mt-2">Data de início</label>
-                <input type="date" class="form-control" placeholder="dd/mm/aaaa" id="startDate">
+                <label for="startDate" class="form-label mt-2"
+                  >Data de início</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  placeholder="dd/mm/aaaa"
+                  id="startDate"
+                />
               </div>
               <div class="col-md-6">
-                <label for="finishDate" class="form-label mt-2">Data de finalização</label>
-                <input type="date" class="form-control" placeholder="dd/mm/aaaa" id="finalDate">
+                <label for="finishDate" class="form-label mt-2"
+                  >Data de finalização</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  placeholder="dd/mm/aaaa"
+                  id="finalDate"
+                />
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label for="startTime" class="form-label mt-2">Hora de início</label>
-                <input type="time" class="form-control" id="startTime">
+                <label for="startTime" class="form-label mt-2"
+                  >Hora de início</label
+                >
+                <input type="time" class="form-control" id="startTime" />
               </div>
               <div class="col-md-6">
-                <label for="finishTime" class="form-label mt-2">Hora de início</label>
-                <input type="time" class="form-control" id="finishTime">
+                <label for="finishTime" class="form-label mt-2"
+                  >Hora de início</label
+                >
+                <input type="time" class="form-control" id="finishTime" />
               </div>
             </div>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Fechar
-              </button>
-              <button type="submit" class="btn btn-primary">Submeter</button>
-            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+            <button type="submit" class="btn btn-primary">Submeter</button>
           </div>
         </div>
       </div>
@@ -305,14 +322,14 @@
     <div
       class="modal fade"
       role="dialog"
-      id="editFormandoModal"
-      aria-labelledby="editFormandoModalLabel"
+      id="editProcessoModal"
+      aria-labelledby="editProcessoModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header gradient">
-            <h3>Dados do Formando</h3>
+            <h3>Editar processo</h3>
             <button
               type="button"
               class="btn-close"
@@ -321,231 +338,146 @@
             ></button>
           </div>
           <div class="modal-body">
-            <label for="selPickerEditT" class="form-label">Turma</label>
+            <label for="processSelPicker" class="form-label">Processo</label>
             <select
-              id="selPickerEditT"
+              id="processSelPicker"
               class="form-control selectpicker"
               data-live-search="true"
             >
-              <option data-tokens="1ftgpsi">1F - TGPSI</option>
-              <option data-tokens="2ftgpsi">2F - TGPSI</option>
-              <option data-tokens="3ftgpsi">3F - TGPSI</option>
-              <option data-tokens="1etmi">1E - TMI</option>
-              <option data-tokens="2etmi">2E - TMI</option>
-              <option data-tokens="3etmi">3E - TMI</option>
-            </select>
-            <label for="selPickerEditF" class="form-label mt-2">Formando</label>
-            <select
-              id="selPickerEditF"
-              class="form-control selectpicker"
-              data-live-search="true"
-            >
-              <option data-tokens="gustavo">Gustavo</option>
-              <option data-tokens="luis">Luís</option>
-              <option data-tokens="pedro">Pedro</option>
-              <option data-tokens="ricardo">Ricardo</option>
-              <option data-tokens="rodrigo">Rodrigo</option>
+              <option data-tokens="processoGustavo">
+                Processo nº 1 - Gustavo
+              </option>
+              <option data-tokens="processoPedro">Processo nº 2 - Pedro</option>
+              <option data-tokens="processoLuís">Processo nº 3 - Luís</option>
+              <option data-tokens="processoRodrigo">
+                Processo nº 4 - Rodrigo
+              </option>
+              <option data-tokens="processoRicardo">
+                Processo nº 5 - Ricardo
+              </option>
             </select>
             <div class="divider"></div>
-            <form>
-              <div class="row p-3">
-                <div class="col-md-8">
-                  <label for="nomeFor" class="form-label">Nome</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nomeFor"
-                    required
-                  />
-                </div>
-                <div class="col-md-4">
-                  <label for="ccFor" class="form-label">C.C. nº</label>
-                  <input type="text" class="form-control" id="ccFor" required />
-                </div>
-              </div>
-              <div class="row p-3">
-                <div class="col-md-4">
-                  <label for="dataValFor" class="form-label"
-                    >Data de validade</label
+            <div class="mx-3">
+              <label for="editSelPickerTurma" class="form-label mt-2"
+                >Turma</label
+              >
+              <select
+                class="form-control selectpicker"
+                id="editSelPickerTurma"
+                data-live-search="true"
+              >
+                <option data-tokens="1ftgpsi">1F - TGPSI</option>
+                <option data-tokens="2ftgpsi">2F - TGPSI</option>
+                <option data-tokens="3ftgpsi">3F - TGPSI</option>
+                <option data-tokens="1etmi">1E - TMI</option>
+                <option data-tokens="2etmi">2E - TMI</option>
+                <option data-tokens="3etmi">3E - TMI</option>
+              </select>
+              <label for="editSelPickerFormando" class="form-label mt-2"
+                >Formando</label
+              >
+              <select
+                class="form-control selectpicker"
+                id="editSelPickerFormando"
+                data-live-search="true"
+              >
+                <option data-tokens="gustavo">Gustavo</option>
+                <option data-tokens="ricardo">Ricardo</option>
+                <option data-tokens="pedro">Pedro</option>
+                <option data-tokens="rodrigo">Rodrigo</option>
+                <option data-tokens="luis">Luís</option>
+              </select>
+              <label for="editSelPickerEE" class="form-label mt-2"
+                >Enc. Educação</label
+              >
+              <select
+                class="form-control selectpicker"
+                id="editSelPickerEE"
+                data-live-search="true"
+              >
+                <option data-tokens="joao">João</option>
+                <option data-tokens="maria">Maria</option>
+                <option data-tokens="joana">Joana</option>
+                <option data-tokens="sara">Sara</option>
+                <option data-tokens="manuel">Manuel</option>
+              </select>
+              <label for="editSelPickerOrientador" class="form-label mt-2"
+                >Orientador</label
+              >
+              <select
+                class="form-control selectpicker"
+                id="~editSelPickerOrientador"
+                data-live-search="true"
+              >
+                <option data-tokens="carlos">Carlos</option>
+                <option data-tokens="jose">José</option>
+                <option data-tokens="miguel">Miguel</option>
+                <option data-tokens="manuel">Manuel</option>
+              </select>
+              <label for="editSelPickerEmpresa" class="form-label mt-2"
+                >Empresa</label
+              >
+              <select
+                class="form-control selectpicker"
+                id="editSelPickerEmpresa"
+                data-live-search="true"
+              >
+                <option data-tokens="durit">Durit</option>
+                <option data-tokens="jade">Jade</option>
+                <option data-tokens="alberplas">Alberplás</option>
+              </select>
+              <label for="editSelPickerMonitor" class="form-label mt-2"
+                >Monitor</label
+              >
+              <select
+                class="form-control selectpicker"
+                id="editSelPickerMonitor"
+                data-live-search="true"
+              >
+                <option data-tokens="artur">Artur</option>
+                <option data-tokens="lucas">Lucas</option>
+                <option data-tokens="bruno">Bruno</option>
+              </select>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="editStartDate" class="form-label mt-2"
+                    >Data de início</label
                   >
                   <input
-                    type="text"
-                    class="form-control"
-                    id="dataValFor"
-                    required
-                  />
-                </div>
-                <div class="col-md-4">
-                  <label for="concelhoFor" class="form-label">Concelho</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="concelhoFor"
-                    required
-                  />
-                </div>
-                <div class="col-md-4">
-                  <label for="codPostFor" class="form-label"
-                    >Código Postal</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="codPostFor"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="row p-3">
-                <div class="col-md-7">
-                  <label for="moradaFor" class="form-label">Morada</label>
-                  <input type="text" class="form-control" required />
-                </div>
-                <div class="col-md-5">
-                  <label for="telFor" class="form-label">Telefone</label>
-                  <input type="text" class="form-control" required />
-                </div>
-              </div>
-              <div class="row p-3">
-                <div class="col-md-7">
-                  <label for="emailFor" class="form-label">E-mail</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="example@domain.com"
-                    required
-                  />
-                </div>
-                <div class="col-md-5">
-                  <label for="dataNasc" class="form-label"
-                    >Data de Nascimento</label
-                  >
-                  <input
-                    type="text"
+                    type="date"
                     class="form-control"
                     placeholder="dd/mm/aaaa"
-                    required
+                    id="editStartDate"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="editFinishDate" class="form-label mt-2"
+                    >Data de finalização</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    placeholder="dd/mm/aaaa"
+                    id="editFinishDate"
                   />
                 </div>
               </div>
-            </form>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Fechar
-              </button>
-              <button type="submit" class="btn btn-primary">Guardar</button>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="editStartTime" class="form-label mt-2"
+                    >Hora de início</label
+                  >
+                  <input type="time" class="form-control" id="editStartTime" />
+                </div>
+                <div class="col-md-6">
+                  <label for="editFinishTime" class="form-label mt-2"
+                    >Hora de início</label
+                  >
+                  <input type="time" class="form-control" id="editFinishTime" />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="modal fade"
-      role="dialog"
-      id="addEEModal"
-      aria-labelledby="addEEModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header gradient">
-            <h3>Dados do Enc. Educação</h3>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <label for="addEEturmaPicker" class="form-label">Turma</label>
-            <select
-              id="addEEturmaPicker"
-              class="form-control selectpicker"
-              data-live-search="true"
-            >
-              <option data-tokens="1ftgpsi">1F - TGPSI</option>
-              <option data-tokens="2ftgpsi">2F - TGPSI</option>
-              <option data-tokens="3ftgpsi">3F - TGPSI</option>
-              <option data-tokens="1etmi">1E - TMI</option>
-              <option data-tokens="2etmi">2E - TMI</option>
-              <option data-tokens="1etmi">3E - TMI</option>
-            </select>
-            <label for="addEEformandoPicker" class="form-label mt-2"
-              >Formando</label
-            >
-            <select
-              id="addEEformandoPicker"
-              class="form-control selectpicker"
-              data-live-search="true"
-            >
-              <option data-tokens="gustavo">Gustavo</option>
-              <option data-tokens="luis">Luís</option>
-              <option data-tokens="pedro">Pedro</option>
-              <option data-tokens="ricardo">Ricardo</option>
-              <option data-tokens="rodrigo">Rodrigo</option>
-            </select>
-            <div class="divider"></div>
-            <form>
-              <div class="row p-3">
-                <div class="col-md-12">
-                  <label for="nomeFor" class="form-label">Nome</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nomeFor"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="row p-3">
-                <div class="col-md-8">
-                  <label for="concelhoFor" class="form-label">Concelho</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="concelhoFor"
-                    required
-                  />
-                </div>
-                <div class="col-md-4">
-                  <label for="codPostFor" class="form-label"
-                    >Código Postal</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="codPostFor"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="row p-3">
-                <div class="col-md-7">
-                  <label for="moradaFor" class="form-label">Morada</label>
-                  <input type="text" class="form-control" required />
-                </div>
-                <div class="col-md-5">
-                  <label for="telFor" class="form-label">Telefone</label>
-                  <input type="text" class="form-control" required />
-                </div>
-              </div>
-              <div class="row p-3">
-                <div class="col-md-12">
-                  <label for="emailFor" class="form-label">E-mail</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="example@domain.com"
-                  />
-                </div>
-              </div>
-            </form>
-          </div>
           <div class="modal-footer">
             <button
               type="button"
@@ -562,14 +494,14 @@
     <div
       class="modal fade"
       role="dialog"
-      id="editEEModal"
-      aria-labelledby="editEEModalLabel"
+      id="listarProcessosModal"
+      aria-labelledby="listarProcessosModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header gradient">
-            <h3>Dados do Enc. Educação</h3>
+            <h3>Lista de processos</h3>
             <button
               type="button"
               class="btn-close"
@@ -578,103 +510,19 @@
             ></button>
           </div>
           <div class="modal-body">
-            <label for="editEEturmaPicker" class="form-label">Turma</label>
+            <label for="processListPicker" class="form-label">Processos</label>
             <select
-              id="editEEturmaPicker"
+              id="processListPicker"
               class="form-control selectpicker"
-              data-live-search="true"
+              multiple
+              style="height: 200px"
             >
-              <option data-tokens="1ftgpsi">1F - TGPSI</option>
-              <option data-tokens="1etmi">1E - TMI</option>
-              <option data-tokens="3ftgpsi">3F - TGPSI</option>
-              <option data-tokens="2ftgpsi">2F - TGPSI</option>
-              <option data-tokens="2etmi">2E - TMI</option>
-              <option data-tokens="3etmi">3E - TMI</option>
+              <option value="p1">Processo nº 1 - Gustavo</option>
+              <option value="p2">Processo nº 2 - Pedro</option>
+              <option value="p3">Processo nº 3 - Luís</option>
+              <option value="p4">Processo nº 4 - Rodrigo</option>
+              <option value="p5">Processo nº 5 - Ricardo</option>
             </select>
-            <label for="editEEformandoPicker" class="form-label mt-2"
-              >Formando</label
-            >
-            <select
-              id="editEEformandoPicker"
-              class="form-control selectpicker"
-              data-live-search="true"
-            >
-              <option data-tokens="gustavo">Gustavo</option>
-              <option data-tokens="luis">Luís</option>
-              <option data-tokens="pedro">Pedro</option>
-              <option data-tokens="ricardo">Ricardo</option>
-              <option data-tokens="rodrigo">Rodrigo</option>
-            </select>
-            <label for="editEEselPicker" class="form-label mt-2"
-              >Enc. Educação</label
-            >
-            <select
-              id="editEEselPicker"
-              class="form-control selectpicker"
-              data-live-search="true"
-            >
-              <option data-tokens="ee-gustavo">João</option>
-              <option data-tokens="ee-luis">Joaquim</option>
-              <option data-tokens="ee-pedro">José</option>
-              <option data-tokens="ee-ricardo">Joana</option>
-              <option data-tokens="ee-rodrigo">Juliana</option>
-            </select>
-            <div class="divider"></div>
-            <form>
-              <div class="row p-3">
-                <div class="col-md-12">
-                  <label for="nomeFor" class="form-label">Nome</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nomeFor"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="row p-3">
-                <div class="col-md-8">
-                  <label for="concelhoFor" class="form-label">Concelho</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="concelhoFor"
-                    required
-                  />
-                </div>
-                <div class="col-md-4">
-                  <label for="codPostFor" class="form-label"
-                    >Código Postal</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="codPostFor"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="row p-3">
-                <div class="col-md-7">
-                  <label for="moradaFor" class="form-label">Morada</label>
-                  <input type="text" class="form-control" required />
-                </div>
-                <div class="col-md-5">
-                  <label for="telFor" class="form-label">Telefone</label>
-                  <input type="text" class="form-control" required />
-                </div>
-              </div>
-              <div class="row p-3">
-                <div class="col-md-12">
-                  <label for="emailFor" class="form-label">E-mail</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="example@domain.com"
-                  />
-                </div>
-              </div>
-            </form>
           </div>
           <div class="modal-footer">
             <button
@@ -684,7 +532,7 @@
             >
               Fechar
             </button>
-            <button type="submit" class="btn btn-primary">Submeter</button>
+            <button type="submit" class="btn btn-primary">Ver processo</button>
           </div>
         </div>
       </div>

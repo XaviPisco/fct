@@ -56,6 +56,15 @@ img {
   font-size: 18px;
   text-transform: uppercase;
 }
+
+#slider4 h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+#slider4 h4 {
+  font-size: 18px;
+  text-transform: uppercase;
+}
 #footer {
   border-top: 1px solid orangered;
 }

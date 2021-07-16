@@ -36,7 +36,7 @@
 
     <title>Gestão de FCT</title>
     <style>
-      #wrapper {
+      body {
         background-color: #FFFFFF;
         background-image: linear-gradient(180deg, #FFFFFF 0%, #ffffff 19%, #dde4ff 39%, #dde4ff 60%, #dad9fb 80%, #dad9fb 100%);
         -webkit-background-size: cover;
@@ -44,35 +44,19 @@
         -o-background-size: cover;
         background-size: cover;
         font-family: "Montserrat", sans-serif;
-        display: none;
-        height: 100vh;
       }
       #back{
         background-color: black;
         opacity: 0.8;
-        height: 84.9vh;
       }
       #header {
         background-color: #fff;
         border-bottom: 1px solid orangered;
       }
     </style>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $("#wrapper").fadeIn(1500);
-        $("a").click(function (e) {
-          redirect = $(this).attr("href");
-          e.preventDefault();
-          $("#wrapper").fadeOut(800, function () {
-            document.location.href = redirect;
-          });
-        });
-      });
-    </script>
   </head>
   <body>
     <!--header-->
-    <div id="wrapper">
     <div id="header">
       <div class="container">
         <nav class="navbar navbar-expand-md navbar-light justify-content-between">
@@ -93,16 +77,16 @@
             <div class="collapse navbar-collapse" id="navbarNav"style="padding-left: 50px;">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="http://www.aeaav.pt/">Site da escola</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="gerirFormandos.html">Formandos</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="gerirEmpresa.html">Empresas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="processos.html">Processos</a>
+                  <a class="nav-link" href="gerirOrientadores.html">Orientadores</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="gerirProcessos.html">Processos</a>
                 </li>
               </ul>
             </div>
@@ -147,33 +131,46 @@
     <!--//slider 2-->
     <!--slider 3-->
   
-    <!--//slider 3-->
     <div id="slider3">
       <div class="container pt-5">
         <div class="row">
-          <div class="col-md-6 align-self-center text-center mb-md-0 mb-4">
-            <h1 class="title">Processos</h1>
-            <h4 class="mb-4 subtitle">Gestão de Processos</h4>
-            <a href="#" class="btn button-primay btn-secondary d-md-inline-block d-block mb-md-0 mb-2 mr-md-2">Ir para Gestão de Processos</a>
+          <div class="col-md-6 align-self-center text-center">
+            <h1 class="title">Orientadores</h1>
+            <h4 class="mb-4 subtitle">Gestão de Orientadores</h4>
+            <a href="gerirOrientadores.html" class="btn button-primay btn-secondary d-md-inline-block d-block mb-md-0 mb-2 mr-md-2">Ir para Gestão de Orientadores</a>
           </div>
           <div class="col-md-6 align-self-center text-center">
+            <img src="imagens/orientadorMin.png" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--//slider 3-->
+    <div id="slider4">
+      <div class="container pt5">
+        <div class="row">
+          <div class="col-md-6 text-center align-items-center">
             <img src="imagens/porcessos.jpg" class="img-fluid">
+          </div>
+          <div class="col-md-6 align-self-center text-center">
+            <h1 class="title">Processos</h2>
+            <h4 class="mb-4 subtitle">Gestão de Processos</h4>
+            <a href="gerirProcessos.html" class="btn btn-secondary button-primay d-md-inline-block d-block mb-md-0 mb-2 mr-md-2">Ir para Gestão de Processos</a>
           </div>
         </div>
       </div>
     </div>
     </div>
-    <div id="footer" style="background-color: #fff !important;">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col mb-md-0 mb-4">
-            <img src="imagens/eqavet.png" class="img-fluid noborder" style="width: 150px; height: 30px;">
-            <img src="imagens/rep.pt.edu.png" class="img-fluid noborder" style="width: 150px; height: 40px; padding-left: 30px;">
-            <img src="imagens/poch.png" class="img-fluid noborder" style="width: 200px; height: 30px; padding-left: 30px;">
-          </div> 
+    <div class="container-fluid" style="background-color: white; border-top: 1px solid orangered;">
+      <div class="row">
+        <div class="col">
+          <img src="imagens/rep.pt.edu.png" class="img-fluid noborder" style="height: 70px;">
+          <img src="imagens/poch.png" class="img-fluid noborder" style="height: 50px;">
+          <img src="imagens/eqavet.png" class="img-fluid noborder" style="height: 50px;">
         </div>
       </div>
-    </div>
     </div>
   </body>
 </html>
