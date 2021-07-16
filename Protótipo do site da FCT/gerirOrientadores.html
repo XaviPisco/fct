@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/btn-branco.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="js/i18n/defaults-eu.js"></script>
+    <title>Gestão de Orientadores</title>
+
+    <style>
+      body {
+        background: url("imagens/orientador.png") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .navbar {
+        background: transparent !important;
+      }
+      #action {
+        color: gray;
+        display: flex;
+        margin-top: 25vh;
+        justify-content: center !important;
+      }
+      .gradient {
+        background: rgb(75, 75, 75);
+        background: linear-gradient(
+          180deg,
+          rgba(75, 75, 75, 1) 0%,
+          rgba(117, 117, 117, 1) 35%,
+          rgba(195, 195, 195, 1) 100%
+        );
+        text-shadow: 2px 2px 3px gray;
+        color: #fff;
+      }
+      .divider {
+        border-top: 1px solid #dee2e6;
+        margin-top: 20px;
+      }
+      .btn-light {
+        border: 1px solid #ced4da !important;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a href="http://aeaav.pt" class="navbar-brand">
+          <img src="imagens/aeaavPNG.png" class="img-fluid" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarItems"
+          aria-controls="navbarItems"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarItems">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gerirFormandos.html"
+                >Gestão de Formandos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gerirEmpresa.html"
+                >Gestão de Empresas</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="gerirOrientadores.html"
+                >Gestão de Orientadores</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gerirProcessos.html"
+                >Gestão de Processos</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="action" class="container-fluid text-center">
+      <div class="row">
+        <div class="col">
+          <h1 style="color: lightgray">Gestão de Orientadores</h1>
+          <div class="row mt-5">
+            <div class="col">
+              <p style="font-size: 18px">O que deseja fazer?</p>
+              <div class="col mt-5">
+                <div class="row">
+                  <div class="col">
+                    <p>
+                      <button
+                        class="btn-branco"
+                        data-bs-toggle="modal"
+                        data-bs-target="#addOrientadorModal"
+                      >
+                        Adicionar orientador
+                      </button>
+                    </p>
+                    <p>
+                      <button
+                        class="btn-branco"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editOrientadorModal"
+                      >
+                        Editar orientador
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      role="dialog"
+      id="addOrientadorModal"
+      aria-labelledby="addOrientadorModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header gradient">
+            <h3>Dados do orientador</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="nomeOrientador" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeOrientador"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-4">
+                  <label for="telOrientador" class="form-label">Telefone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="telOrientador"
+                    required
+                  />
+                </div>
+                <div class="col-md-8">
+                  <label for="emailOrientador" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailOrientador"
+                    placeholder="example@domain.com"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+            <button type="submit" class="btn btn-primary">Submeter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      role="dialog"
+      id="editOrientadorModal"
+      aria-labelledby="editOrientadorModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header gradient">
+            <h3>Dados do orientador</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label for="selPickerOrientador" class="form-label"
+              >Orientador</label
+            >
+            <select
+              id="selPickerOrientador"
+              class="form-control selectpicker"
+              data-live-search="true"
+            >
+              <option data-tokens="carlos">Carlos Alberto</option>
+              <option data-tokens="manuel">Manuel Silva</option>
+              <option data-tokens="fernando">Fernando Valente</option>
+            </select>
+            <div class="divider"></div>
+            <form>
+              <div class="row p-3">
+                <div class="col-md-12">
+                  <label for="nomeOrientador" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nomeOrientador"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-4">
+                  <label for="telOrientador" class="form-label">Telefone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="telOrientador"
+                    required
+                  />
+                </div>
+                <div class="col-md-8">
+                  <label for="emailOrientador" class="form-label">E-mail</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailOrientador"
+                    placeholder="example@domain.com"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+            <button type="submit" class="btn btn-primary">Submeter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -40,13 +40,6 @@
     <script src="js/i18n/defaults-eu.js"></script>
     <title>Gestão de Formandos</title>
     <style>
-      #addEmpresa {
-        margin-top: 10%;
-        width: 70%;
-        background-color: #fff;
-        border-radius: 15px;
-        display: none;
-      }
       #action {
         color: gray;
         display: flex;
@@ -54,7 +47,7 @@
         justify-content: center !important;
       }
       body {
-        background: url("imagens/formandosOG.png") no-repeat center center fixed;
+        background: url("imagens/documentos.png") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -109,7 +102,7 @@
               <a class="nav-link" href="index.html">Início</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="gerirFormandos.html"
+              <a class="nav-link" href="gerirFormandos.html"
                 >Gestão de Formandos</a
               >
             </li>
@@ -124,7 +117,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="gerirProcessos.html"
+              <a class="nav-link active" href="gerirProcessos.html"
                 >Gestão de Processos</a
               >
             </li>
@@ -146,36 +139,27 @@
                       <button
                         class="btn-branco"
                         data-bs-toggle="modal"
-                        data-bs-target="#addFormandoModal"
+                        data-bs-target="#gerarProcessoModal"
                       >
-                        Adicionar formando
+                        Gerar Processo
                       </button>
                     </p>
                     <p>
                       <button
                         class="btn-branco"
                         data-bs-toggle="modal"
-                        data-bs-target="#editFormandoModal"
+                        data-bs-target="#editProcessoModal"
                       >
-                        Editar formando
+                        Editar processo
                       </button>
                     </p>
                     <p>
                       <button
                         class="btn-branco"
                         data-bs-toggle="modal"
-                        data-bs-target="#addEEModal"
+                        data-bs-target="#listaProcessosModal"
                       >
-                        Adicionar Enc. Educação
-                      </button>
-                    </p>
-                    <p>
-                      <button
-                        class="btn-branco"
-                        data-bs-toggle="modal"
-                        data-bs-target="#editEEModal"
-                      >
-                        Editar Enc. Educação
+                        Lista de processos
                       </button>
                     </p>
                   </div>
@@ -189,14 +173,14 @@
     <div
       class="modal fade"
       role="dialog"
-      id="addFormandoModal"
-      aria-labelledby="addFormandoModalLabel"
+      id="gerarProcessoModal"
+      aria-labelledby="gerarProcessoModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header gradient">
-            <h3>Dados do Formando</h3>
+            <h3>Gerar processo</h3>
             <button
               type="button"
               class="btn-close"
@@ -218,90 +202,92 @@
               <option data-tokens="2etmi">2E - TMI</option>
               <option data-tokens="3etmi">3E - TMI</option>
             </select>
-            <div class="divider"></div>
-            <form>
-              <div class="row p-3">
-                <div class="col-md-8">
-                  <label for="nomeFor" class="form-label">Nome</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nomeFor"
-                    required
-                  />
-                </div>
-                <div class="col-md-4">
-                  <label for="ccFor" class="form-label">C.C. nº</label>
-                  <input type="text" class="form-control" id="ccFor" required />
-                </div>
+            <label for="selPickerFormando" class="form-label mt-2"
+              >Formando</label
+            >
+            <select
+              class="form-control selectpicker"
+              id="selPickerFormando"
+              data-live-search="true"
+            >
+              <option data-tokens="gustavo">Gustavo</option>
+              <option data-tokens="ricardo">Ricardo</option>
+              <option data-tokens="pedro">Pedro</option>
+              <option data-tokens="rodrigo">Rodrigo</option>
+              <option data-tokens="luis">Luís</option>
+            </select>
+            <label for="selPickerEE" class="form-label mt-2"
+              >Enc. Educação</label
+            >
+            <select
+              class="form-control selectpicker"
+              id="selPickerEE"
+              data-live-search="true"
+            >
+              <option data-tokens="joao">João</option>
+              <option data-tokens="maria">Maria</option>
+              <option data-tokens="joana">Joana</option>
+              <option data-tokens="sara">Sara</option>
+              <option data-tokens="manuel">Manuel</option>
+            </select>
+            <label for="selPickerOrientador" class="form-label mt-2"
+              >Orientador</label
+            >
+            <select
+              class="form-control selectpicker"
+              id="selPickerOrientador"
+              data-live-search="true"
+            >
+              <option data-tokens="carlos">Carlos</option>
+              <option data-tokens="jose">José</option>
+              <option data-tokens="miguel">Miguel</option>
+              <option data-tokens="manuel">Manuel</option>
+            </select>
+            <label for="selPickerEmpresa" class="form-label mt-2"
+              >Empresa</label
+            >
+            <select
+              class="form-control selectpicker"
+              id="selPickerEmpresa"
+              data-live-search="true"
+            >
+              <option data-tokens="durit">Durit</option>
+              <option data-tokens="jade">Jade</option>
+              <option data-tokens="alberplas">Alberplás</option>
+            </select>
+            <label for="selPickerMonitor" class="form-label mt-2"
+              >Monitor</label
+            >
+            <select
+              class="form-control selectpicker"
+              id="selPickerMonitor"
+              data-live-search="true"
+            >
+              <option data-tokens="artur">Artur</option>
+              <option data-tokens="lucas">Lucas</option>
+              <option data-tokens="bruno">Bruno</option>
+            </select>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="startDate" class="form-label mt-2">Data de início</label>
+                <input type="date" class="form-control" placeholder="dd/mm/aaaa" id="startDate">
               </div>
-              <div class="row p-3">
-                <div class="col-md-4">
-                  <label for="dataValFor" class="form-label"
-                    >Data de validade</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="dataValFor"
-                    placeholder="mm/aaaa"
-                    required
-                  />
-                </div>
-                <div class="col-md-4">
-                  <label for="concelhoFor" class="form-label">Concelho</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="concelhoFor"
-                    required
-                  />
-                </div>
-                <div class="col-md-4">
-                  <label for="codPostFor" class="form-label"
-                    >Código Postal</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="codPostFor"
-                    required
-                  />
-                </div>
+              <div class="col-md-6">
+                <label for="finishDate" class="form-label mt-2">Data de finalização</label>
+                <input type="date" class="form-control" placeholder="dd/mm/aaaa" id="finalDate">
               </div>
-              <div class="row p-3">
-                <div class="col-md-7">
-                  <label for="moradaFor" class="form-label">Morada</label>
-                  <input type="text" class="form-control" required />
-                </div>
-                <div class="col-md-5">
-                  <label for="telFor" class="form-label">Telefone</label>
-                  <input type="text" class="form-control" required />
-                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="startTime" class="form-label mt-2">Hora de início</label>
+                <input type="time" class="form-control" id="startTime">
               </div>
-              <div class="row p-3">
-                <div class="col-md-7">
-                  <label for="emailFor" class="form-label">E-mail</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="example@domain.com"
-                    required
-                  />
-                </div>
-                <div class="col-md-5">
-                  <label for="dataNasc" class="form-label"
-                    >Data de Nascimento</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="dd/mm/aaaa"
-                    required
-                  />
-                </div>
+              <div class="col-md-6">
+                <label for="finishTime" class="form-label mt-2">Hora de início</label>
+                <input type="time" class="form-control" id="finishTime">
               </div>
-            </form>
+            </div>
+            </div>
             <div class="modal-footer">
               <button
                 type="button"

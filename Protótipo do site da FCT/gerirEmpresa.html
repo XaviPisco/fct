@@ -40,25 +40,19 @@
     <script src="js/i18n/defaults-eu.js"></script>
     <title>Gestão de Empresas</title>
     <style>
-      #addEmpresa {
-        margin-top: 10%;
-        width: 70%;
-        background-color: #fff;
-        border-radius: 15px;
-        display: none;
-      }
       #action {
         color: gray;
-        display: block;
-        padding-top: 25vh;
+        display: flex;
+        margin-top: 25vh;
+        justify-content: center !important;
       }
-      #wrapper {
+      body {
         background: url("imagens/background.png") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-        font-family: "Arial", sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
       }
       .back {
         height: 100vh;
@@ -81,63 +75,106 @@
         border-top: 1px solid #dee2e6;
         margin-top: 20px;
       }
+      .navbar {
+        background: transparent !important;
+      }
     </style>
 
     <script></script>
   </head>
   <body>
-    <div id="wrapper" class="back">
-      <div class="container-fluid text-center" id="action">
-        <div class="row align-items-center">
-          <div class="col-md-12">
-            <h1 style="color: lightgray">Gestão de Empresas</h1>
-            <div class="col-md-6 offset-md-3">
-              <br /><br /><br /><br />
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a href="http://aeaav.pt" class="navbar-brand">
+          <img src="imagens/aeaavPNG.png" class="img-fluid" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarItems"
+          aria-controls="navbarItems"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarItems">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gerirFormandos.html"
+                >Gestão de Formandos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="gerirEmpresa.html"
+                >Gestão de Empresas</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gerirOrientadores.html"
+                >Gestão de Orientadores</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gerirProcessos.html"
+                >Gestão de Processos</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid text-center" id="action">
+      <div class="row">
+        <div class="col">
+          <h1 style="color: lightgray">Gestão de Empresas</h1>
+          <div class="row mt-5">
+            <div class="col">
               <p style="font-size: 18px">O que deseja fazer?</p>
-              <br /><br />
-              <div class="row">
-                <div class="col">
-                  <p>
-                    <button
-                      class="btn-branco"
-                      data-bs-toggle="modal"
-                      data-bs-target="#addEmpresaModal"
-                    >
-                      Adicionar empresa
-                    </button>
-                  </p>
-                  <p>
-                    <button
-                      class="btn-branco"
-                      data-bs-toggle="modal"
-                      data-bs-target="#editEmpresaModal"
-                    >
-                      Editar empresa
-                    </button>
-                  </p>
-                  <p>
-                    <button
-                      class="btn-branco"
-                      data-bs-toggle="modal"
-                      data-bs-target="#addMonModal"
-                    >
-                      Adicionar monitor
-                    </button>
-                  </p>
-                  <p>
-                    <button
-                      class="btn-branco"
-                      data-bs-toggle="modal"
-                      data-bs-target="#editMonModal"
-                    >
-                      Editar monitor
-                    </button>
-                  </p>
-                  <p>
-                    <a class="btn-branco" href="index.html" role="button"
-                      >Voltar à página inicial</a
-                    >
-                  </p>
+              <div class="col mt-5">
+                <div class="row">
+                  <div class="col">
+                    <p>
+                      <button
+                        class="btn-branco"
+                        data-bs-toggle="modal"
+                        data-bs-target="#addEmpresaModal"
+                      >
+                        Adicionar empresa
+                      </button>
+                    </p>
+                    <p>
+                      <button
+                        class="btn-branco"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editEmpresaModal"
+                      >
+                        Editar empresa
+                      </button>
+                    </p>
+                    <p>
+                      <button
+                        class="btn-branco"
+                        data-bs-toggle="modal"
+                        data-bs-target="#addMonModal"
+                      >
+                        Adicionar monitor
+                      </button>
+                    </p>
+                    <p>
+                      <button
+                        class="btn-branco"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editMonModal"
+                      >
+                        Editar monitor
+                      </button>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -195,7 +232,6 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="xxxx-xxx"
                     id="codPostEmp"
                     required
                   />
@@ -306,7 +342,6 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="xxxx-xxx"
                     id="editCodPostEmp"
                     required
                   />
@@ -553,7 +588,7 @@
             >
               Fechar
             </button>
-            <button type="submit" class="btn btn-primary">Submeter</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
           </div>
         </div>
       </div>
